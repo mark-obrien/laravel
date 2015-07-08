@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,6 +12,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::controller('pages', 'PagesController');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
