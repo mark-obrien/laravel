@@ -15,6 +15,11 @@ class PagesController extends BaseController
 
         return view('hello', array('name' => $name));
     }
+
+    public function postHello(){
+
+    }
+
 }
 
 
