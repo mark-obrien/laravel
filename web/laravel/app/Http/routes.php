@@ -15,3 +15,4 @@
 Route::controller('pages', 'PagesController');
 
 Route::controller('names', 'NamesController');
+
