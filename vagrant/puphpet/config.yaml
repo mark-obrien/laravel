@@ -148,8 +148,8 @@ apache:
         av_vh2ox1ojz3eg:
             servername: laravel.dev
             serveraliases:
-                - 'www.laravel .dev'
-            docroot: '/var/www/laravel '
+                - 'www.laravel.dev'
+            docroot: '/var/www/laravel/public'
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -278,7 +278,7 @@ mysql:
             password: '123456'
     databases:
         mysqlnd_55lpm69bfuv2:
-            name: 'laravel '
+            name: 'laravel'
             sql: ''
     grants:
         mysqlng_76d6hr51s7sn:
