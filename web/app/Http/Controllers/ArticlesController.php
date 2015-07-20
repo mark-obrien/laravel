@@ -1,14 +1,15 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use Carbon\Carbon;
-use Request;
 use App\Article;
+use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller {
 
 	public function index()
     {
+
         $articles = Article::latest('published_at')->published()->get();
 
         return view('articles.index', compact('articles'));
@@ -18,8 +19,6 @@ class ArticlesController extends Controller {
     {
         $article = Article::findOrFail($id);
 
-        dd($article->published_at);
-
         return view('articles.show', compact('article'));
     }
 
@@ -28,9 +27,32 @@ class ArticlesController extends Controller {
         return view('articles.create');
     }
 
-    public function store()
+    /**
+     * Save a new article
+     * @param ArticleRequest $request
+     * @return Response
+     */
+
+    public function store(ArticleRequest $request)
     {
-        Article::create(Request::all());
+        $article = new Article($request->all());
+
+        Auth::user()->articles()->save($article);
+
+        return redirect('articles');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update($id, ArticleRequest $request)
+    {
+        $article = Article::findOrFail($id);
+
+        $article->update($request->all());
 
         return redirect('articles');
     }
