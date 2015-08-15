@@ -3,3 +3,4 @@ robots.txt
 replace.php
 .DS_Store
 .idea/
+npm-debug.log
