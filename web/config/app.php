@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+	'debug' => env('APP_DEBUG', true),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -146,6 +146,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		'App\Providers\ViewComposerServiceProvider'
 
 	],
 

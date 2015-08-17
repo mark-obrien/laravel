@@ -15,10 +15,12 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database"
+			"database",
+		  	"app/models"
 		],
 		"psr-4": {
-			"App\\": "app/"
+			"App\\": "app/",
+		  "SpaceCamp\\": "app/SpaceCamp"
 		}
 	},
 	"autoload-dev": {

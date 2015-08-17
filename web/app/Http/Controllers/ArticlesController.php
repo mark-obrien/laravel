@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Article;
+use App\Models\Article;
+use App\Models\Tag;
+use App\Models\User;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth;
-use Laracasts\Flash\Flash;
 use Session;
 
 class ArticlesController extends Controller {
@@ -29,7 +30,9 @@ class ArticlesController extends Controller {
 
     public function create()
     {
-        return view('articles.create');
+        $tags = Tag::lists('name', 'id');
+
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -40,9 +43,10 @@ class ArticlesController extends Controller {
 
     public function store(ArticleRequest $request)
     {
-        $article = new Article($request->all());
 
-        Auth::user()->articles()->save($article);
+        $article = Auth::user()->articles()->create($request->all());
+
+        $article->tags()->attach($request->input('tag_list'));
 
         flash()->overlay('Your article has been created', 'Good Job');
 
@@ -51,7 +55,9 @@ class ArticlesController extends Controller {
 
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = Tag::lists('name', 'id');
+
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     public function update(Article $article, ArticleRequest $request)

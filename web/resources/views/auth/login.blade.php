@@ -1,63 +1,54 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
-
-					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
+	<div id="main">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login">
+					<div class="logo" href="#"><i class="md md-lg md-multitrack-audio"></i> blueprint</div>
+					<div class="panel panel-default panel-shadow">
+						<form role="form" method="POST" action="/auth/login">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<div class="panel-body">
+								@if (count($errors) > 0)
+									<div class="alert alert-danger">
+										<strong>Whoops!</strong> There were some problems with your input.<br><br>
+										<ul>
+											@foreach ($errors->all() as $error)
+												<li>{{ $error }}</li>
+											@endforeach
+										</ul>
+									</div>
+								@endif
+								<div class="form-group">
+									<label for="email">Email address</label>
+									<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								</div>
+								<div class="form-group margin-none">
+									<div class="media">
+										<div class="media-body media-middle">
+											<label for="password">Password</label>
+										</div>
+										<div class="media-right media-middle">
+											<a href="#" class="small pull-right">Forgot?</a>
+										</div>
+									</div>
+									<input type="password" class="form-control" name="password">
 								</div>
 							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-									Login
-								</button>
-
-								<a href="/password/email">Forgot Your Password?</a>
+							<div class="form-group text-center">
+								<button type="submit" class="btn btn-primary">Login <i class="md md-lock-open"></i></button>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
+					<div class="text-center">
+						<p class="text-muted">or login with</p>
+						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-facebook fa-fw"></i></a>
+						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-twitter fa-fw"></i></a>
+						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-google-plus fa-fw"></i></a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 @endsection

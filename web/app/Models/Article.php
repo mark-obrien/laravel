@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -36,7 +36,7 @@ class Article extends Model {
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('SpaceCamp\User');
     }
 
     /**
@@ -47,7 +47,17 @@ class Article extends Model {
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
+    /**
+     * Get list of tag ids associated with current article
+     *
+     * @return array
+     */
+    public function getTagListAttribute()
+    {
+        return $this->tags->lists('id');
     }
 
 
