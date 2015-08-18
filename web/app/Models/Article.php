@@ -36,7 +36,7 @@ class Article extends Model {
      */
     public function user()
     {
-        return $this->belongsTo('SpaceCamp\User');
+        return $this->belongsTo('SpaceCamp\Users\User');
     }
 
     /**

@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Models\Article;
 use App\Models\Tag;
-use App\Models\User;
+use SpaceCamp\Users;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth;
 use Session;
