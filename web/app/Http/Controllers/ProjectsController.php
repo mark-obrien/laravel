@@ -36,7 +36,7 @@ class ProjectsController extends Controller {
 	public function store(Request $request)
 	{
 		$project = Auth::user()->projects()->create($request->all());
-		$project->user()->attach(Auth::user());
+//		$project->user()->attach(Auth::user());
 		Flash::overlay('Your New Project Has Been Created');
 		return redirect('articles');
 	}
