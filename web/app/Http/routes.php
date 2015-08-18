@@ -25,4 +25,6 @@ Route::get('contact', 'PagesController@contact');
 
 Route::resource('articles', 'ArticlesController');
 
+Route::resource('projects', 'ProjectsController');
+
 Route::get('foo', 'FooController@foo');
