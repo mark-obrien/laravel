@@ -29,10 +29,18 @@
 		@include('partials.sidebar')
 	@endif
 
-	<div class="container-fluid">
+	<div class="page-header heading-block-primary">
+		<div class="container">
+			<h2>@yield('page-title')</h2>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="main">
         @include('flash::message')
         @yield('content')
-    </div>
+		</div>
+	</div>
 
     @yield('footer')
 

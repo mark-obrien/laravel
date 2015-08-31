@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use Laracasts\Flash\Flash;
+use SpaceCamp\Projects\Project;
 
 class ProjectsController extends Controller {
 
@@ -13,9 +13,15 @@ class ProjectsController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct(){
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
-		//
+		$projects = Project::all();
+		return view('projects.index', compact('projects'));
 	}
 
 	/**
