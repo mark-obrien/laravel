@@ -3,6 +3,9 @@
     {!! Form::text('name', null, ['placeholder' => 'Project Title', 'class' => 'form-control']) !!}
 </div>
 <div class="form-group">
+    {!! Form::file('name', null, ['placeholder' => 'Project Logo', 'class' => 'form-control']) !!}
+</div>
+<div class="form-group">
     {!! Form::submit('Create Project', ['class' => 'btn btn-primary']) !!}
 </div>
 {!! Form::close() !!}

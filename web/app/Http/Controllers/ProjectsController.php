@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Laracasts\Flash\Flash;
 use SpaceCamp\Projects\Project;
+use SpaceCamp\Files\File;
 
 class ProjectsController extends Controller {
 
@@ -41,10 +42,16 @@ class ProjectsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$project = Auth::user()->projects()->create($request->all());
-//		$project->user()->attach(Auth::user());
+		$file = new File();
+		$file->title = 'dsf';
+		$file->save();
+		Auth::user()->projects()->create([
+			'title' => $request->get('title'),
+			'file_id' => $file->id
+			]
+		);
 		Flash::overlay('Your New Project Has Been Created');
-		return redirect('articles');
+		return redirect('projects');
 	}
 
 	/**
