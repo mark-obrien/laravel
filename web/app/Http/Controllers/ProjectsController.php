@@ -6,6 +6,7 @@ use Auth;
 use Laracasts\Flash\Flash;
 use SpaceCamp\Projects\Project;
 use SpaceCamp\Files\File;
+use Input;
 
 class ProjectsController extends Controller {
 
@@ -42,7 +43,9 @@ class ProjectsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$file = new File();
+		$file = $request->get('file');
+		$file->move(public_path(). '/uploads');
+		dd($file);
 		$file->title = 'dsf';
 		$file->save();
 		Auth::user()->projects()->create([
