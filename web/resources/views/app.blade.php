@@ -27,12 +27,7 @@
 	@if(Auth::user())
 		@include('partials.navbar')
 		@include('partials.sidebar')
-
-		<div class="page-header heading-block-primary">
-			<div class="container">
-				<h2>@yield('page-title')</h2>
-			</div>
-		</div>
+		@include('partials.page-title')
 	@endif
 
 	<div class="container">

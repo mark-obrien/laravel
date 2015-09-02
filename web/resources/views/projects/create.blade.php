@@ -1,9 +1,9 @@
 @extends('app')
 @section('content')
 <div id="main">
-    <div class="page-header">
-        <h2>Create A Project</h2>
-    </div>
+    @section('page-title')
+        Create A Project
+    @stop
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default panel-shadow">

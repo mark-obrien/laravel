@@ -43,16 +43,20 @@ class ProjectsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$file = $request->get('file');
-		$file->move(public_path(). '/uploads');
-		dd($file);
-		$file->title = 'dsf';
-		$file->save();
+		$file = array('file' => Input::file('file'));
+
+		if ($request->hasFile('file'))
+		{
+			$file = $request->get('file');
+			$file->move(public_path(). '/uploads');
+		}
+
 		Auth::user()->projects()->create([
 			'title' => $request->get('title'),
 			'file_id' => $file->id
 			]
 		);
+
 		Flash::overlay('Your New Project Has Been Created');
 		return redirect('projects');
 	}

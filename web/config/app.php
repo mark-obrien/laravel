@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+		'Illuminate\Broadcasting\BroadcastServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
 
 		/*
@@ -146,7 +147,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-		'App\Providers\ViewComposerServiceProvider'
+		'App\Providers\ViewComposerServiceProvider',
+		'App\Providers\AuthServiceProvider',
 
 	],
 
@@ -198,6 +200,7 @@ return [
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Flash'     => 'Laracasts\Flash\Flash',
+		'Gate'      => Illuminate\Support\Facades\Gate::class,
 
 	],
 
