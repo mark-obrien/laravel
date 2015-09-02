@@ -43,12 +43,15 @@ class ProjectsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$file = array('file' => Input::file('file'));
 
-		if ($request->hasFile('file'))
+		$destinationPath = base_path() . '/public/uploads';
+
+		if ($request->hasFile('image'));
 		{
-			$file = $request->get('file');
-			$file->move(public_path(). '/uploads');
+			$file = $request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$fileName = rand(11111,99999).'.'.$extension;
+			$file->move($destinationPath, $fileName);
 		}
 
 		Auth::user()->projects()->create([
