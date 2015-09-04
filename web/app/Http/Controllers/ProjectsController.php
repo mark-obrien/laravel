@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Jobs\CreateFile;
+use App\Jobs\CreateProject;
 use Illuminate\Http\Request;
 use Auth;
 use Laracasts\Flash\Flash;
@@ -44,21 +46,11 @@ class ProjectsController extends Controller {
 	public function store(Request $request)
 	{
 
-		$destinationPath = base_path() . '/public/uploads';
+		$this->dispatch(new CreateProject($request, Auth::user()));
 
-		if ($request->hasFile('image'));
-		{
-			$file = $request->file('image');
-			$extension = $file->getClientOriginalExtension();
-			$fileName = rand(11111,99999).'.'.$extension;
-			$file->move($destinationPath, $fileName);
-		}
-
-		Auth::user()->projects()->create([
-			'title' => $request->get('title'),
-			'file_id' => $file->id
-			]
-		);
+		if ($this->request->hasFile('image')){
+			$this->dispatch(new CreateFile($this->request->hasFile('image')));
+        }
 
 		Flash::overlay('Your New Project Has Been Created');
 		return redirect('projects');

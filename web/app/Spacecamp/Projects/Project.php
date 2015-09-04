@@ -6,7 +6,7 @@ class Project extends Model {
 
     protected $fillable = [
         'title',
-        'image',
+        'file',
         'user_id'
     ];
 
