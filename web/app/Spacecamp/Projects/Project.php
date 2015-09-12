@@ -6,7 +6,7 @@ class Project extends Model {
 
     protected $fillable = [
         'title',
-        'file',
+        'file_id',
         'user_id'
     ];
 
@@ -18,6 +18,16 @@ class Project extends Model {
     public function user()
     {
         return $this->belongsToMany('SpaceCamp\Users\User');
+    }
+
+    /**
+     * A Project is owned by a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function projectFile()
+    {
+        return $this->hasOne('SpaceCamp\ProjectFiles\ProjectFile');
     }
 
 }

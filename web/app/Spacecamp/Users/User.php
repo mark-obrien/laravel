@@ -47,8 +47,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('SpaceCamp\Projects\Project');
     }
 
-    public function isATeamManager(){
-        return false;
-    }
-
 }

@@ -82,6 +82,7 @@
                                 <small>2 min ago</small>
                             </div>
                             <div class="notification-block body-bg">
+
 									<span class="notification-icon primary">
 										<i class="md md-timelapse"></i>
 									</span>
@@ -89,7 +90,6 @@
 										2h 40min left to <a href="#">General Board Meeting</a>.
 									</span>
                                 <small>2 min ago</small>
-
                             </div>
                         </div>
                         <div class="dropdown-padding text-center">
@@ -138,10 +138,9 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="navbar-btn">
-                        <a href="signup.html" class="btn btn-orange ">Sign up</a>
-                    </div>
+                <li><a href="#" class="user" id="showUserPush">
+                        <img src="images/guy.jpg" width="40" alt="guy" class="img-circle"/>
+                    </a>
                 </li>
             </ul>
         </div>
