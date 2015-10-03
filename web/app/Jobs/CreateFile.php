@@ -2,20 +2,20 @@
 
 namespace App\Jobs;
 
-use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
-use SpaceCamp\Files\File;
+use SpaceCamp\ProjectFiles\ProjectFile;
 
 class CreateFile extends Job implements SelfHandling
 {
 
     protected $file;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(File $file)
+    public function __construct($file)
     {
         $this->file = $file;
     }
@@ -23,18 +23,19 @@ class CreateFile extends Job implements SelfHandling
     /**
      * Execute the job.
      *
-     * @return void
+     * @return ProjectFile
      */
     public function handle()
     {
         $destinationPath = base_path() . '/public/uploads';
         $extension = $this->file->getClientOriginalExtension();
         $fileName = rand(11111,99999).'.'.$extension;
-        $this->move($destinationPath, $fileName);
+        $this->file->move($destinationPath, $fileName);
 
-        $this->file->create([
+        $file = new ProjectFile();
+        return $file->create([
             'title'    => $fileName,
-            'location' => $destinationPath
+            'location' => '/uploads'
         ]);
 
     }

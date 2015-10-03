@@ -16,12 +16,13 @@ Route::controllers([
     'password' => 'Auth\PasswordController'
 ]);
 
-Route::get('/', function(){
-    return view('home');
-});
-
+Route::get('/', 'PagesController@index');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
+Route::get('client-listing', 'PagesController@clientListing');
+Route::get('timeline', function(){
+    return view('pages.timeline');
+});
 
 Route::resource('articles', 'ArticlesController');
 

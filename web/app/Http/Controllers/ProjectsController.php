@@ -4,10 +4,10 @@ use App\Http\Requests;
 use App\Jobs\CreateFile;
 use App\Jobs\CreateProject;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjectRequest;
 use Auth;
+use Validator;
 use Laracasts\Flash\Flash;
-use SpaceCamp\Projects\Project;
-use SpaceCamp\Files\File;
 use Input;
 
 class ProjectsController extends Controller {
@@ -24,7 +24,7 @@ class ProjectsController extends Controller {
 
 	public function index()
 	{
-		$projects = Project::all();
+		$projects = Auth::user()->projects;
 		return view('projects.index', compact('projects'));
 	}
 
@@ -43,14 +43,23 @@ class ProjectsController extends Controller {
 	 * @param $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(ProjectRequest $request)
 	{
 
-		$this->dispatch(new CreateProject($request, Auth::user()));
+		$validator = Validator::make($request->all(), $request->rules());
 
-		if ($this->request->hasFile('image')){
-			$this->dispatch(new CreateFile($this->request->hasFile('image')));
-        }
+		if ($validator->fails()) {
+			return redirect('projects/create')
+				->withErrors($validator)
+				->withInput();
+		}
+
+		if ($request->hasFile('image')){
+			$file = $this->dispatch(new CreateFile($request->file('image')));
+		}
+
+		$this->dispatch(new CreateProject($request, Auth::user(), $file));
+
 
 		Flash::overlay('Your New Project Has Been Created');
 		return redirect('projects');

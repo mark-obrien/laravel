@@ -20,7 +20,7 @@
                 <li><a href="email.html"><i class="md md-email"></i> Emails</a></li>
                 <li><a href="#"><i class="md md-attach-money"></i> Payments</a></li>
                 <li><a href="#"><i class="md md-settings"></i> Settings</a></li>
-                <li><a href="login.html"><i class="md md-exit-to-app"></i> Logout</a></li>
+                <li><a href="{{ url('auth/logout') }}"><i class="md md-exit-to-app"></i> Logout</a></li>
             </ul>
         </div>
     </div>

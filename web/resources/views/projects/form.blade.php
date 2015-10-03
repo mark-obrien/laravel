@@ -1,6 +1,6 @@
 {!! Form::open(['url' => 'projects', 'encytype' => 'multipart/form-data', 'files' => true]) !!}
 <div class="form-group">
-    {!! Form::text('name', null, ['placeholder' => 'Project Title', 'class' => 'form-control']) !!}
+    {!! Form::text('title', null, ['placeholder' => 'Project Title', 'class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::file('image', '', ['placeholder' => 'Project Logo', 'class' => 'form-control']) !!}

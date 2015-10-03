@@ -18573,14 +18573,11 @@ span.fancytree-node.fancytree-active .fancytree-expander {
 }
 .product-item .product-image {
   display: inline-block;
-  width: 150px;
-  height: 150px;
 }
 .product-item .product-image img {
   border-radius: 5px;
   z-index: 9;
-  width: 150px;
-  height: 150px;
+  width: 100%;
 }
 .product-item .product-image:hover {
   background: #000;

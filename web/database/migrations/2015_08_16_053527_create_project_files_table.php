@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilesTable extends Migration {
+class CreateProjectFilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,14 @@ class CreateFilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('files', function(Blueprint $table)
+		Schema::create('project_files', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('title');
 			$table->string('location');
 			$table->timestamps();
+			$table->integer('project_id')->unsigned()->nullable();
+			$table->foreign('project_id')->references('id')->on('projects');
 		});
 	}
 

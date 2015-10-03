@@ -1,13 +1,12 @@
-<?php namespace SpaceCamp\Files;
+<?php namespace SpaceCamp\ProjectFiles;
 
 use Illuminate\Database\Eloquent\Model;
 
-class File extends Model {
+class ProjectFile extends Model {
 
     protected $fillable = [
         'title',
+        'location'
     ];
-
-
 
 }
