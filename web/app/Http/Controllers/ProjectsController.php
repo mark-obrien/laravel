@@ -1,9 +1,10 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Jobs\CreateFile;
 use App\Jobs\CreateProject;
-use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
 use Auth;
 use Validator;

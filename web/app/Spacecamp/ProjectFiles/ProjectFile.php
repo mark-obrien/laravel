@@ -9,4 +9,14 @@ class ProjectFile extends Model {
         'location'
     ];
 
+    /**
+     * A File is owned by a project (logo).
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function project()
+    {
+        return $this->belongsTo('SpaceCamp\Projects\Project');
+    }
+
 }

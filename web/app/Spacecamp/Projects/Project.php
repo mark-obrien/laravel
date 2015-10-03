@@ -21,7 +21,7 @@ class Project extends Model {
     }
 
     /**
-     * A Project is owned by a user.
+     * A Project has one file (logo).
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

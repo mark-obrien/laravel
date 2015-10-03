@@ -38,9 +38,9 @@ class CreateProject extends Job implements SelfHandling
     {
         $project = new Project();
         $project->title = $this->request->get('title');
-
         $project->save();
-        $project->file()->save($this->file);
         $project->user()->attach($this->user);
+        $this->file->project()->associate($project);
+        $this->file->save();
     }
 }
