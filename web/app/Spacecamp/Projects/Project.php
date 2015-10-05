@@ -25,9 +25,9 @@ class Project extends Model {
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function projectFile()
+    public function ProjectLogo()
     {
-        return $this->hasOne('SpaceCamp\ProjectFiles\ProjectFile');
+        return $this->hasOne('SpaceCamp\ProjectLogo\ProjectLogo');
     }
 
 }

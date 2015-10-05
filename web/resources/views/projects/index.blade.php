@@ -13,7 +13,7 @@
                         <div class="col-sm-4">
                             <div class="product-item">
                                 <a href="{{ action('ProjectsController@show', [$project->id]) }}" class="product-image">
-                                    <img src="{{$project->projectFile->location . '/' . $project->projectFile->title}}" alt="product" class="img-responsive"/>
+                                    <img src="{{$project->projectLogo->location . '/' . $project->projectLogo->title}}" alt="product" class="img-responsive"/>
                                 </a>
                                 <a href="{{ action('ProjectsController@show', [ $project->id]) }}" class="product-title">{{ $project->title }}</a>
                             </div>

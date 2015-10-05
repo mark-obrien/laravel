@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use Illuminate\Contracts\Bus\SelfHandling;
-use SpaceCamp\ProjectFiles\ProjectFile;
+use SpaceCamp\ProjectLogo\ProjectLogo;
 
 class CreateFile extends Job implements SelfHandling
 {
@@ -12,8 +12,7 @@ class CreateFile extends Job implements SelfHandling
 
     /**
      * Create a new job instance.
-     *
-     * @return void
+     * @param $file
      */
     public function __construct($file)
     {
@@ -23,7 +22,7 @@ class CreateFile extends Job implements SelfHandling
     /**
      * Execute the job.
      *
-     * @return ProjectFile
+     * @return ProjectLogo
      */
     public function handle()
     {
@@ -32,7 +31,7 @@ class CreateFile extends Job implements SelfHandling
         $fileName = rand(11111,99999).'.'.$extension;
         $this->file->move($destinationPath, $fileName);
 
-        $file = new ProjectFile();
+        $file = new ProjectLogo();
         return $file->create([
             'title'    => $fileName,
             'location' => '/uploads'

@@ -139,7 +139,7 @@
                     </div>
                 </li>
                 <li><a href="#" class="user" id="showUserPush">
-                        <img src="images/guy.jpg" width="40" alt="guy" class="img-circle"/>
+                        <img src="{{ url('images/guy.jpg') }}" width="40" alt="guy" class="img-circle"/>
                     </a>
                 </li>
             </ul>

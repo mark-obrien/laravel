@@ -149,6 +149,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ViewComposerServiceProvider',
 		'App\Providers\AuthServiceProvider',
+		'App\Helpers\GenerateSlugServiceProvider',
+
 
 	],
 

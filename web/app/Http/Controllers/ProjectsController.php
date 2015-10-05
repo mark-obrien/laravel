@@ -6,10 +6,13 @@ use App\Http\Requests;
 use App\Jobs\CreateFile;
 use App\Jobs\CreateProject;
 use App\Http\Requests\ProjectRequest;
+use SpaceCamp\ProjectLogo\ProjectLogo;
+use SpaceCamp\ProjectLogo\ProjectLogoRepository;
 use Auth;
 use Validator;
 use Laracasts\Flash\Flash;
 use Input;
+use App\Facades\GenerateSlug;
 
 class ProjectsController extends Controller {
 
@@ -58,6 +61,10 @@ class ProjectsController extends Controller {
 		if ($request->hasFile('image')){
 			$file = $this->dispatch(new CreateFile($request->file('image')));
 		}
+        // TODO Assign random image if logo is not provided
+//        else {
+//
+//        }
 
 		$this->dispatch(new CreateProject($request, Auth::user(), $file));
 
@@ -72,9 +79,10 @@ class ProjectsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		//
+        dd(GenerateSlug::generate('dfsdf'));
+		return view('projects.view');
 	}
 
 	/**

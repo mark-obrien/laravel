@@ -1,8 +1,8 @@
-<?php namespace SpaceCamp\ProjectFiles;
+<?php namespace SpaceCamp\ProjectLogo;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectFile extends Model {
+class ProjectLogo extends Model {
 
     protected $fillable = [
         'title',
@@ -10,7 +10,7 @@ class ProjectFile extends Model {
     ];
 
     /**
-     * A File is owned by a project (logo).
+     * A Logo is owned by a project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

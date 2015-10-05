@@ -42,10 +42,7 @@
 						</form>
 					</div>
 					<div class="text-center">
-						<p class="text-muted">or login with</p>
-						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-facebook fa-fw"></i></a>
-						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-twitter fa-fw"></i></a>
-						<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-google-plus fa-fw"></i></a>
+						<p class="text-muted">or register <a href="{{ url('auth/register') }}">here</a> </p>
 					</div>
 				</div>
 			</div>

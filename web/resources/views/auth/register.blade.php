@@ -7,9 +7,6 @@
 			<div class="signup">
 				<div class="logo"><i class="md md-lg md-person-add"></i> Sign Up</div>
 				<div class="panel panel-default panel-shadow">
-					<div class="avatar">
-						<img src="images/guy.jpg" alt="guy" class="img-circle img-responsive"/>
-					</div>
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -44,12 +41,6 @@
 							<button type="submit" class="btn btn-success bold">Create Account</button>
 						</div>
 					</form>
-				</div>
-				<div class="text-center">
-					<p class="text-muted">or connect with</p>
-					<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-facebook fa-fw"></i></a>
-					<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-twitter fa-fw"></i></a>
-					<a href="#" class="btn btn-default btn-rounded"><i class="fa fa-google-plus fa-fw"></i></a>
 				</div>
 			</div>
 		</div>

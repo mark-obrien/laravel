@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use Illuminate\Http\Request;
-use SpaceCamp\ProjectFiles\ProjectFile;
+use SpaceCamp\ProjectLogo\ProjectLogo;
 use SpaceCamp\Projects\Project;
 use SpaceCamp\Users\User;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -20,9 +20,11 @@ class CreateProject extends Job implements SelfHandling
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $request
+     * @param $user
+     * @param $file
      */
-    public function __construct(Request $request, User $user, ProjectFile $file)
+    public function __construct(Request $request, User $user, ProjectLogo $file)
     {
         $this->user = $user;
         $this->request = $request;
@@ -40,6 +42,7 @@ class CreateProject extends Job implements SelfHandling
         $project->title = $this->request->get('title');
         $project->save();
         $project->user()->attach($this->user);
+
         $this->file->project()->associate($project);
         $this->file->save();
     }
