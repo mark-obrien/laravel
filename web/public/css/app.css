@@ -18564,26 +18564,31 @@ span.fancytree-node.fancytree-active .fancytree-expander {
 .post-body {
   padding: 15px;
 }
-.product-group {
+.project-group {
   margin-top: 15px;
 }
-.product-item {
+.project-item {
   margin-bottom: 30px;
   text-align: center;
 }
-.product-item .product-image {
+.project-item i {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.project-item .project-image {
   display: inline-block;
 }
-.product-item .product-image img {
+.project-item .project-image img {
   border-radius: 5px;
   z-index: 9;
   width: 100%;
 }
-.product-item .product-image:hover {
+.project-item .project-image:hover {
   background: #000;
   border-radius: 5px;
 }
-.product-item .product-image:hover:after {
+.project-item .project-image:hover:after {
   font-family: 'Material Design Iconic Font';
   font-size: 28px;
   color: #fff;
@@ -18595,10 +18600,10 @@ span.fancytree-node.fancytree-active .fancytree-expander {
   margin-left: -14px;
   line-height: 150px;
 }
-.product-item .product-image:hover img {
+.project-item .project-image:hover img {
   opacity: 0.5;
 }
-.product-item .product-title {
+.project-item .project-title {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
@@ -18611,42 +18616,42 @@ span.fancytree-node.fancytree-active .fancytree-expander {
   display: block;
   padding: 10px 0 0;
 }
-.product-item .product-title small,
-.product-item .product-title .small {
+.project-item .project-title small,
+.project-item .project-title .small {
   font-weight: normal;
   line-height: 1;
   color: #777777;
 }
-.product-item .product-title small,
-.product-item .product-title .small {
+.project-item .project-title small,
+.project-item .project-title .small {
   font-size: 75%;
 }
-.page-header .product-item .product-title {
+.page-header .project-item .project-title {
   font-weight: 400;
   font-size: 28px;
   color: #bbbbbb;
 }
-.product-item .product-title.headline {
+.project-item .project-title.headline {
   color: #bbbbbb;
 }
-.product-item .product-title.headline {
+.project-item .project-title.headline {
   font-size: 18px;
 }
-.product-item .product-title.headline .md {
+.project-item .project-title.headline .md {
   font-size: 24px;
   position: relative;
   top: 3px;
   margin: 0 3px;
 }
-.product-item .product-title:hover {
+.project-item .project-title:hover {
   text-decoration: none;
   color: #448aff;
 }
-.product-group-info {
+.project-group-info {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 10px;
 }
-.product-images {
+.project-images {
   padding: 25px;
   border: 1px solid #eeeeee;
   margin-bottom: 15px;
