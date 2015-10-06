@@ -1,15 +1,13 @@
 <?php
 
-namespace SpaceCamp\ProjectLogo;
+namespace App\Repositories;
 
-use SpaceCamp\ProjectLogo\ProjectLogo;
-
-class ProjectLogoRepository {
+class ProjectLogoRepository
+{
 
     public function assignRandomProjectLogo()
     {
         return ProjectLogo::find(10);
     }
-
 
 }

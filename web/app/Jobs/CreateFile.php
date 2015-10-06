@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use Illuminate\Contracts\Bus\SelfHandling;
 use SpaceCamp\ProjectLogo\ProjectLogo;
-use Intervention\Image\Image as Image;
 
 class CreateFile extends Job implements SelfHandling
 {

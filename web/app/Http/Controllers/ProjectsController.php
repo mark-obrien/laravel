@@ -8,6 +8,7 @@ use App\Jobs\CreateProject;
 use App\Http\Requests\ProjectRequest;
 use SpaceCamp\ProjectLogo\ProjectLogo;
 use SpaceCamp\ProjectLogo\ProjectLogoRepository;
+use App\Repositories\ProjectRepository as Project;
 use Auth;
 use Validator;
 use Laracasts\Flash\Flash;
@@ -57,6 +58,11 @@ class ProjectsController extends Controller {
 				->withErrors($validator)
 				->withInput();
 		}
+
+
+		$project = new Project();
+		$project->create([$request->get('title')]);
+
 
 		if ($request->hasFile('image')){
 			$file = $this->dispatch(new CreateFile($request->file('image')));
