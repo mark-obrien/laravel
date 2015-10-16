@@ -20,10 +20,10 @@
                         @else
                             <div class="col-sm-4">
                                 <div class="project-item">
-                                    <a href="{{ action('ProjectsController@show', [$project->id]) }}" class="project-image">
+                                    <a href="{{ action('ProjectsController@show', [$project->slug]) }}" class="project-image">
                                         <img src="{{$project->projectLogo->location . '/' . $project->projectLogo->title}}" alt="project" class="img-responsive"/>
                                     </a>
-                                    <a href="{{ action('ProjectsController@show', [ $project->id]) }}" class="project-title">{{ $project->title }}</a>
+                                    <a href="{{ action('ProjectsController@show', [ $project->slug]) }}" class="project-title">{{ $project->title }}</a>
                                 </div>
                             </div>
                         @endif

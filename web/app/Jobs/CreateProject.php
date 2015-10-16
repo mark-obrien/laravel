@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Facades\GenerateSlug;
 use Illuminate\Http\Request;
 use SpaceCamp\ProjectLogo\ProjectLogo;
 use SpaceCamp\Projects\Project;
@@ -40,7 +41,9 @@ class CreateProject extends Job implements SelfHandling
     {
         $project = new Project();
         $project->title = $this->request->get('title');
+        $project->slug = str_slug($project->title, "-");
         $project->save();
+
         $project->user()->attach($this->user);
 
         $this->file->project()->associate($project);

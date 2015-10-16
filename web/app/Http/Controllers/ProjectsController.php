@@ -18,13 +18,20 @@ use App\Facades\GenerateSlug;
 class ProjectsController extends Controller {
 
 	/**
+	 * @var Project
+	 */
+	private $project;
+
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 
-	public function __construct(){
+	public function __construct(Project $project)
+	{
 		$this->middleware('auth');
+		$this->project = $project;
 	}
 
 	public function index()
@@ -59,11 +66,6 @@ class ProjectsController extends Controller {
 				->withInput();
 		}
 
-
-		$project = new Project();
-		$project->create([$request->get('title')]);
-
-
 		if ($request->hasFile('image')){
 			$file = $this->dispatch(new CreateFile($request->file('image')));
 		}
@@ -87,8 +89,8 @@ class ProjectsController extends Controller {
 	 */
 	public function show($slug)
 	{
-        dd(GenerateSlug::generate('dfsdf'));
-		return view('projects.view');
+		$project = $this->project->findBy('slug', $slug);
+		return view('projects.view')->with(compact('project'));
 	}
 
 	/**

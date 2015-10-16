@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('page-title')
-    Projects
+    {{  $project->title  }}
 @stop
 
 @section('content')

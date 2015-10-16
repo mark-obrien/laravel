@@ -6,6 +6,7 @@ class Project extends Model {
 
     protected $fillable = [
         'title',
+        'slug',
         'file_id',
         'user_id'
     ];

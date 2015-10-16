@@ -5,14 +5,8 @@ namespace App\Repositories;
 class ProjectRepository extends SpacecampRepository
 {
 
-    protected $model = 'Project';
-
-    public function create(array $attr)
+    public function model()
     {
-        parent::create($attr);
+        return 'SpaceCamp\Projects\Project';
     }
-
-
-
-
 }
