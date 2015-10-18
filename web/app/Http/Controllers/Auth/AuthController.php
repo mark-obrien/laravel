@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use SpaceCamp\Users\User;
+use Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

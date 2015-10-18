@@ -27,7 +27,7 @@ class CreateDiscussionsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('discussions');
 	}
 
 }

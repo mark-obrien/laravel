@@ -14,7 +14,9 @@ class ViewComposerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->composeSidebar();
+		view()->composer('*', function($view){
+			$view->with('user', Auth::user());
+		});
 	}
 
 	/**
@@ -27,11 +29,5 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		//
 	}
 
-	public function composeSidebar()
-	{
-
-		view()->composer('partials.sidebar', 'App\Http\Composers\SidebarComposer');
-
-	}
 
 }

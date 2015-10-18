@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 
-use SpaceCamp\Users\User;
+use Models\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

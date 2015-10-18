@@ -4,9 +4,9 @@ namespace App\Jobs;
 
 use App\Facades\GenerateSlug;
 use Illuminate\Http\Request;
-use SpaceCamp\ProjectLogo\ProjectLogo;
-use SpaceCamp\Projects\Project;
-use SpaceCamp\Users\User;
+use Models\ProjectLogo;
+use Models\Project;
+use Models\User;
 use Illuminate\Contracts\Bus\SelfHandling;
 
 class CreateProject extends Job implements SelfHandling

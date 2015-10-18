@@ -1,4 +1,6 @@
-<?php namespace SpaceCamp\ProjectLogo;
+<?php
+
+namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +18,7 @@ class ProjectLogo extends Model {
      */
     public function project()
     {
-        return $this->belongsTo('SpaceCamp\Projects\Project');
+        return $this->belongsTo('Models\Project');
     }
 
 }

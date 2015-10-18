@@ -1,4 +1,6 @@
-<?php namespace SpaceCamp\Users;
+<?php
+
+namespace Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -44,7 +46,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function projects()
     {
-        return $this->belongsToMany('SpaceCamp\Projects\Project');
+        return $this->belongsToMany('Models\Project');
     }
 
 }

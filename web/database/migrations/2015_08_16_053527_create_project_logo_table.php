@@ -30,7 +30,7 @@ class CreateProjectLogoTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('project_logs');
 	}
 
 }

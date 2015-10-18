@@ -6,14 +6,11 @@ use App\Http\Requests;
 use App\Jobs\CreateFile;
 use App\Jobs\CreateProject;
 use App\Http\Requests\ProjectRequest;
-use SpaceCamp\ProjectLogo\ProjectLogo;
-use SpaceCamp\ProjectLogo\ProjectLogoRepository;
 use App\Repositories\ProjectRepository as Project;
+use Laracasts\Flash\Flash;
 use Auth;
 use Validator;
-use Laracasts\Flash\Flash;
 use Input;
-use App\Facades\GenerateSlug;
 
 class ProjectsController extends Controller {
 

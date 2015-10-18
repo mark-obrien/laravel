@@ -1,4 +1,6 @@
-<?php namespace SpaceCamp\Projects;
+<?php
+
+namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +20,7 @@ class Project extends Model {
      */
     public function user()
     {
-        return $this->belongsToMany('SpaceCamp\Users\User');
+        return $this->belongsToMany('Models\User');
     }
 
     /**
@@ -28,7 +30,7 @@ class Project extends Model {
      */
     public function ProjectLogo()
     {
-        return $this->hasOne('SpaceCamp\ProjectLogo\ProjectLogo');
+        return $this->hasOne('Models\ProjectLogo');
     }
 
 }

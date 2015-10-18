@@ -7,8 +7,7 @@
 				<div class="login">
 					<div class="logo" href="#"><i class="md md-lg md-multitrack-audio"></i> blueprint</div>
 					<div class="panel panel-default panel-shadow">
-						<form role="form" method="POST" action="/auth/login">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						{!! Form::open(['url' => '/auth/login', 'method' => 'POST']) !!}
 							<div class="panel-body">
 								@if (count($errors) > 0)
 									<div class="alert alert-danger">
@@ -21,19 +20,19 @@
 									</div>
 								@endif
 								<div class="form-group">
-									<label for="email">Email address</label>
-									<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+									{!! Form::label('email', 'Email address') !!}
+									{!! Form::input('email', 'email', old('email'), ['class' => 'form-control']) !!}
 								</div>
 								<div class="form-group margin-none">
 									<div class="media">
 										<div class="media-body media-middle">
-											<label for="password">Password</label>
+											{!! Form::label('password', 'Password') !!}
 										</div>
 										<div class="media-right media-middle">
 											<a href="#" class="small pull-right">Forgot?</a>
 										</div>
 									</div>
-									<input type="password" class="form-control" name="password">
+									{!! Form::input('password', 'password', null, ['class' => 'form-control']) !!}
 								</div>
 							</div>
 							<div class="form-group text-center">

@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use SpaceCamp\SpacecampRepository;
-
 class UserRepository extends SpacecampRepository
 {
 
-
-
+    function model()
+    {
+        return 'Models\Project';
+    }
 }
