@@ -5867,6 +5867,9 @@ button.close {
     width: 600px;
     margin: 30px auto;
   }
+  #create-user-modal .modal-dialog {
+    width: 635px;
+  }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -18570,6 +18573,11 @@ span.fancytree-node.fancytree-active .fancytree-expander {
 .project-item {
   margin-bottom: 30px;
   text-align: center;
+}
+.project-item.add-project .project-title {
+  background: #eeeeee;
+  border-radius: 5px;
+  padding: 80px 0;
 }
 .project-item i {
   display: block;

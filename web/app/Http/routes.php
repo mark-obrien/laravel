@@ -11,26 +11,42 @@
 |
 */
 
+/**
+ * Auth Routes
+ */
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController'
 ]);
 
-Route::get('/', 'PagesController@index');
-Route::get('about', 'PagesController@about');
-Route::get('contact', 'PagesController@contact');
-Route::get('client-listing', 'PagesController@clientListing');
-Route::get('timeline', function(){
-    return view('pages.timeline');
-});
+/**
+ * Page Routes
+ */
+Route::resource('', 'PagesController');
+Route::get('calendar', array('as' => 'calendar', 'uses' => 'PagesController@calendar'));
+Route::get('everyone', array('as' => 'everyone', 'uses' => 'PagesController@everyone'));
+Route::post('everyone', array('as' => 'everyone', 'uses' => 'UsersController@store'));
 
+/**
+ * Article Routes
+ */
 Route::resource('articles', 'ArticlesController');
 
+/**
+ * Project Routes
+ */
 Route::get('projects/{project-slug}/edit', array('as' => 'editProject', 'uses' => 'ProjectsController@edit'));
 Route::get('projects/{project-slug}', array('as' => 'viewProject', 'uses' => 'ProjectsController@show'));
 Route::resource('projects', 'ProjectsController');
 
+/**
+ * Account Routes
+ */
 Route::get('account/edit', array('as' => 'editAccount', 'uses' => 'AccountController@edit'));
 Route::post('account/edit', array('as' => 'editAccount', 'uses' => 'AccountController@update'));
 
-Route::get('foo', 'FooController@foo');
+/**
+ * User Routes
+ */
+Route::resource('users', 'UsersController');
+Route::post('users/create', array('as' => 'storeUser', 'uses' => 'AccountController@store'));

@@ -7,7 +7,7 @@
 @section('content')
     <div id="main">
         <div class="row">
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-12">
                 <?php $count = 0; ?>
                 <div class="row project-group">
                     @foreach($projects as $project)

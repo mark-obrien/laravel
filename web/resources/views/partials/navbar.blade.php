@@ -5,16 +5,16 @@
             <button type="button" class="navbar-toggle visible-xs collapsed pull-left"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <i class="md md-menu"></i>
             </button>
-            <a class="navbar-brand" href="index.html">Blueprint</a>
+            <a class="navbar-brand" href="{{ url() }}">Blueprint</a>
             <button type="button" class="navbar-toggle pull-right" id="showRightPush">
                 <i class="md md-more-vert"></i>
             </button>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="../default/index.html">Admin</a></li>
-                <li><a href="../sidebar-mini/index.html">Sidebar-Mini</a></li>
-                <li class="active"><a href="../fixed/index.html">Fixed</a></li>
+                <li><a href="{{ url('projects') }}">Projects</a></li>
+                <li><a href="{{ url('calendar') }}">Calendar</a></li>
+                <li><a href="{{ url('everyone') }}">Everyone</a></li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown">Pages <span class="caret"></span></a>
                     <ul class="dropdown-menu">

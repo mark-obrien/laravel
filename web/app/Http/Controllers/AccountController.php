@@ -11,6 +11,11 @@ use Validator;
 class AccountController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

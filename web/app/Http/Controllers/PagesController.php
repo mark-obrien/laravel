@@ -1,26 +1,40 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Models\User;
 use Auth;
 
 class PagesController extends Controller {
 
-    public function __construct(){
+    /*
+	|--------------------------------------------------------------------------
+	| Pages Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller is responsible for handling all default pages.
+	|
+	*/
+
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         if(Auth::user()){
             return redirect('projects');
         }
     }
 
-    public function clientListing(){
-        return view('pages.client-listing');
+    public function everyone()
+    {
+        $users = User::paginate(15);
+        return view('pages.everyone')->with(compact('users'));
     }
 
-	public function about(){
-
+	public function about()
+    {
        $people = [
            'Taylor', 'Mark', 'Derp'
        ];
@@ -29,9 +43,13 @@ class PagesController extends Controller {
 
     }
 
-    public function contact(){
+    public function calendar()
+    {
+        return view('pages.calendar');
+    }
 
+    public function contact()
+    {
         return view('pages.contact');
-
     }
 }
