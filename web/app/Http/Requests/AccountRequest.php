@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Auth;
 
 class AccountRequest extends Request
 {
@@ -25,7 +26,7 @@ class AccountRequest extends Request
     {
         return [
             'name'  => 'required',
-            'email' => 'required | email | unique:users,email',
+            'email' => 'required | email | unique:users,email,'. Auth::user()->id,
             'password' => 'required',
             'company' => 'required'
         ];

@@ -35,9 +35,9 @@ Route::resource('articles', 'ArticlesController');
 /**
  * Project Routes
  */
+Route::resource('projects', 'ProjectsController');
 Route::get('projects/{project-slug}/edit', array('as' => 'editProject', 'uses' => 'ProjectsController@edit'));
 Route::get('projects/{project-slug}', array('as' => 'viewProject', 'uses' => 'ProjectsController@show'));
-Route::resource('projects', 'ProjectsController');
 
 /**
  * Account Routes
