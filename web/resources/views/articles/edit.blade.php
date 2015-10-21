@@ -5,7 +5,7 @@
     <hr />
 
     {!! Form::model($article, ['method' => 'PATCH', 'action' => ['ArticlesController@update', $article->id]]) !!}
-    @include('articles.form', ['submit_button_text' => 'Update Article'])
+        @include('articles.form', ['submit_button_text' => 'Update Article'])
     {!! Form::close() !!}
 
     @include('errors.list')

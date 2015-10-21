@@ -2703,6 +2703,11 @@ var unemployment = [{
         buttonName:'btn-default'
     });
 
+    $('.filestyle').on('click', function(e){
+        var fileName = $('.filestyle')[0].files[0].name;
+        $(this).after('<img src="'+fileName+'"/>');
+    });
+
     $('#data-table').dataTable();
 
     // activate showMail toggle for under 768 px;

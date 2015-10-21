@@ -1,23 +1,18 @@
 @extends('app')
+
+@section('page-title')
+    Create A Project
+@stop
+
 @section('content')
-<div id="main">
-    @section('page-title')
-        Create A Project
-    @stop
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="panel panel-default panel-shadow">
-                <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <h4 class="margin-t-none">Input Variants</h4>
+    <div id="main">
+        <div class="page-header">
+            <a href="{{ url('projects') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
+        </div>
+        <div role="tabpanel">
+            <!-- Tab panes -->
+            <div class="tab-content tab-content-default">
+                <div role="tabpanel" class="tab-pane active" id="account">
                     @include('projects.form')
                 </div>
             </div>

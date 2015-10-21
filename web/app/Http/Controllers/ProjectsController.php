@@ -21,8 +21,7 @@ class ProjectsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 *
-	 * @return Response
+	 * @param $project
 	 */
 
 	public function __construct(Project $project)
