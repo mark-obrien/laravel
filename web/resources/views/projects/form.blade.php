@@ -1,4 +1,4 @@
-{!! Form::open(['encytype' => 'multipart/form-data', 'files' => true, 'class' => 'form-horizontal padding-15']) !!}
+{!! Form::open(['url' => 'projects', 'encytype' => 'multipart/form-data', 'files' => true, 'class' => 'form-horizontal padding-15']) !!}
 @if (count($errors) > 0)
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -10,14 +10,14 @@
     </div>
 @endif
 <div class="form-group">
-    <label for="avatar" class="col-sm-3 control-label">Profile Picture</label>
+    {!! Form::label('image', 'Project Logo', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-9">
         <div class="media">
             <div class="media-left">
-                <img src="{{url('images/guy.jpg')}}" width="80" alt="person">
+                <img id="preview-upload" src="" width="80">
             </div>
             <div class="media-body media-middle">
-                <input type="file" class="filestyle">
+                {!! Form::file('image', ['class' => 'filestyle']) !!}
                 <small class="text-muted bold">Size 80x80px</small>
             </div>
         </div>

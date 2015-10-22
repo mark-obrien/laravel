@@ -2703,10 +2703,33 @@ var unemployment = [{
         buttonName:'btn-default'
     });
 
-    $('.filestyle').on('click', function(e){
-        var fileName = $('.filestyle')[0].files[0].name;
-        $(this).after('<img src="'+fileName+'"/>');
+    $('.filestyle').on('change', function(e){
+        readURL(this);
+        var path, url;
+        url = this.value;
+        url = url.split("\\");
+        path = url[2];
+
+
+        console.log(path);
+
+
+        $(this).after('<img src="'+path+'"/>');
     });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('[data-label="UploadImage"]').children('img').attr('src', e.target.result);
+
+            }
+
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
     $('#data-table').dataTable();
 
