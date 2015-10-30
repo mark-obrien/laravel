@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Jobs\CreateFile;
+use App\Jobs\CreateProjectLogo;
 use App\Jobs\CreateProject;
 use App\Http\Requests\ProjectRequest;
 use App\Repositories\ProjectRepository as Project;
@@ -62,16 +62,9 @@ class ProjectsController extends Controller {
 				->withInput();
 		}
 
-		if ($request->hasFile('image')){
-			$file = $this->dispatch(new CreateFile($request->file('image')));
-		}
-        // TODO Assign random image if logo is not provided
-//        else {
-//
-//        }
+		$file = $this->dispatch(new CreateProjectLogo($request->file('image'), [360,227]));
 
 		$this->dispatch(new CreateProject($request, Auth::user(), $file));
-
 
 		Flash::overlay('Your New Project Has Been Created');
 		return redirect('projects');

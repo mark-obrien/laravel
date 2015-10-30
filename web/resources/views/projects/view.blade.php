@@ -6,6 +6,74 @@
 
 @section('content')
     <div id="main">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default panel-shadow">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="panel-body">
+                                <div class="width-100">
+                                    <h5 class="text-muted margin-none">Discussions</h5>
+
+                                    <h2 class="margin-none">
+                                        7
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body add">
+                            <div class="pull-right width-150">
+                                <a href="#"><i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default panel-shadow">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="panel-body">
+                                <div class="width-100">
+                                    <h5 class="text-muted margin-none">Files</h5>
+
+                                    <h2 class="margin-none">
+                                        8
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body add">
+                            <div class="pull-right width-150">
+                                <a href="#"><i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default panel-shadow">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="panel-body">
+                                <div class="width-100">
+                                    <h5 class="text-muted margin-none">To-dos</h5>
+
+                                    <h2 class="margin-none">
+                                        8
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body add">
+                            <div class="pull-right width-150">
+                                <a href="#"><i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="media">
             <div class="media-body clearfix-xs width-100">
                 <div class="panel panel-shadow">
@@ -30,74 +98,6 @@
                     <div class="panel-body">
                         <i class="fa fa-calendar fa-4x"></i>
                         <div class="h1"> &dollar; 132,562</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-shadow">
-                    <div class="media">
-                        <div class="media-left">
-                            <div class="panel-body">
-                                <div class="width-100">
-                                    <h5 class="text-muted margin-none" id="graphWeek-y">Active Week</h5>
-
-                                    <h2 class="margin-none" id="graphWeek-a">
-                                        $129488
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <div class="pull-right width-150">
-                                <div id="graphWeek" style="height: 100px; margin:-5px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-shadow">
-                    <div class="media">
-                        <div class="media-left">
-                            <div class="panel-body">
-                                <div class="width-100">
-                                    <h5 class="text-muted margin-none" id="graphWeek2-y">2nd Week</h5>
-
-                                    <h2 class="margin-none" id="graphWeek2-a">
-                                        $129488
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <div class="pull-right width-150">
-                                <div id="graphWeek2" style="height: 100px; margin:-5px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-grey panel-shadow">
-                    <div class="media">
-                        <div class="media-left">
-                            <div class="panel-body">
-                                <div class="width-100">
-                                    <h5 class="margin-none" id="graphWeek3-y">3nd Week</h5>
-
-                                    <h2 class="margin-none" id="graphWeek3-a">
-                                        $129488
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <div class="pull-right width-150">
-                                <div id="graphWeek3" style="height: 100px; margin:-5px;"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
