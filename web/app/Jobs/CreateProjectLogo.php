@@ -5,11 +5,14 @@ namespace App\Jobs;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Models\ProjectLogo;
 use Image;
+use App\Helpers\RandomProjectLogo;
 
 class CreateProjectLogo extends Job implements SelfHandling
 {
 
     protected $file;
+    private $size;
+    private $destinationPath;
 
     /**
      * Create a new file instance.
@@ -20,6 +23,7 @@ class CreateProjectLogo extends Job implements SelfHandling
     {
         $this->file = $file;
         $this->size = $size;
+        $this->destinationPath = base_path() . '/public/uploads';
     }
 
     /**
@@ -29,21 +33,20 @@ class CreateProjectLogo extends Job implements SelfHandling
      */
     public function handle()
     {
+
         if($this->file == null)
         {
-            $this->assignRandomLogo();
+            $logo = new RandomProjectLogo();
+            $this->file = $logo->getImage();
         }
-        else
-        {
-            $destinationPath = base_path() . '/public/uploads';
-            $extension = $this->file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'.'.$extension;
-            $this->file->move($destinationPath, $fileName);
 
-            if(isset($this->size))
-            {
-                $this->resizeImage($destinationPath, $fileName);
-            }
+        $extension = $this->file->getClientOriginalExtension();
+        $fileName = rand(11111, 99999).'.'.$extension;
+        $this->file->move($this->destinationPath, $fileName);
+
+        if(isset($this->size))
+        {
+            $this->resizeImage($this->destinationPath, $fileName);
         }
 
         $img = new ProjectLogo();
@@ -53,20 +56,16 @@ class CreateProjectLogo extends Job implements SelfHandling
         ]);
     }
 
-    private function resizeImage($destinationPath, $fileName)
+    private function resizeImage($fileName)
     {
         $background = Image::canvas($this->size[0], $this->size[1]);
-        $img = Image::make($destinationPath . '/' . $fileName)->resize($this->size[0], $this->size[1], function ($c) {
+        $img = Image::make($this->destinationPath . '/' . $fileName)->resize($this->size[0], $this->size[1], function ($c) {
             $c->aspectRatio();
             $c->upsize();
         });
 
         $background->insert($img, 'center');
-        $background->save($destinationPath . '/' . $fileName);
+        $background->save($this->destinationPath . '/' . $fileName);
     }
 
-    private function assignRandomLogo()
-    {
-
-    }
 }
