@@ -3,9 +3,9 @@
 namespace App\Helpers;
 
 
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class RandomProjectLogo extends File
+class RandomProjectLogo extends UploadedFile
 {
 
     private $logoPath;
@@ -14,7 +14,9 @@ class RandomProjectLogo extends File
     public function __construct()
     {
         $this->logoPath = base_path() . '/public/images/project-logos';
-        parent::__construct($this->logoPath);
+        $images = scandir($this->logoPath);
+        $this->fileName = $images[rand (2,6)];
+        parent::__construct($this->logoPath . '/' . $this->fileName, $this->fileName);
     }
 
     public function getRandomLogoPath()
@@ -26,7 +28,7 @@ class RandomProjectLogo extends File
     {
 
         $images = scandir($this->logoPath);
-        $this->originalName = $images[rand (2,8)];
+        $this->originalName = $images[rand (2,6)];
 
         return $this;
 

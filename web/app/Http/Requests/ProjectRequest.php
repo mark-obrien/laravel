@@ -25,7 +25,7 @@ class ProjectRequest extends Request
     {
         return [
             'title' => 'required|min:3',
-            'image' => 'required|mimes:jpeg,bmp,png'
+            'image' => 'mimes:jpeg,bmp,png'
         ];
     }
 }

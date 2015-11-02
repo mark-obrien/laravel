@@ -37,12 +37,19 @@ class CreateProjectLogo extends Job implements SelfHandling
         if($this->file == null)
         {
             $logo = new RandomProjectLogo();
-            $this->file = $logo->getImage();
+            $this->file = $logo;
+            $extension = $this->file->getClientOriginalExtension();
+            $fileName = uniqid() . '.' . $extension;
+            copy($logo->getRandomLogoPath() . '/' . $logo->getClientOriginalName(), $this->destinationPath . '/' . $fileName);
         }
 
-        $extension = $this->file->getClientOriginalExtension();
-        $fileName = rand(11111, 99999).'.'.$extension;
-        $this->file->move($this->destinationPath, $fileName);
+        else
+        {
+            $extension = $this->file->getClientOriginalExtension();
+            $fileName = uniqid() . '.' . $extension;
+            $this->file->move($this->destinationPath, $fileName);
+        }
+
 
         if(isset($this->size))
         {
@@ -56,10 +63,17 @@ class CreateProjectLogo extends Job implements SelfHandling
         ]);
     }
 
-    private function resizeImage($fileName)
+    /**
+     * Resize the logo
+     *
+     * @param $path
+     * @param $fileName
+     * @return void
+     */
+    private function resizeImage($path, $fileName)
     {
         $background = Image::canvas($this->size[0], $this->size[1]);
-        $img = Image::make($this->destinationPath . '/' . $fileName)->resize($this->size[0], $this->size[1], function ($c) {
+        $img = Image::make($path . '/' . $fileName)->resize($this->size[0], $this->size[1], function ($c) {
             $c->aspectRatio();
             $c->upsize();
         });
